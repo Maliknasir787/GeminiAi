@@ -104,7 +104,7 @@
       extraButtons.style.display = "none";
 
       try {
-        const url = `https://gemini.rishuapi.workers.dev/?ask=${encodeURIComponent(prompt)}`;
+        const url = `https://black-box-ai.apis-bj-devs.workers.dev/?text=${encodeURIComponent(prompt)}`;
         const res = await fetch(url);
         const json = await res.json();
 
