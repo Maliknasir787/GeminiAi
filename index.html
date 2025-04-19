@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gemini AI Assistant</title>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Gemini AI Assistant</title> 
   <style>
     body {
       margin: 0;
@@ -72,27 +72,26 @@
       gap: 10px;
       margin-top: 15px;
     }
-  </style>
-</head>
-<body>
-  <div class="box">
-    <h2>Gemini AI Assistant</h2>
-    <input type="text" id="prompt" placeholder="Ask me anything..." />
-    <button onclick="askAI()">Ask</button>
-
-    <div id="responseBox" style="display: none;"></div>
-
-    <div class="btn-group" id="extraButtons" style="display: none;">
-      <button onclick="copyResponse()">📋 Copy Response</button>
-      <button onclick="window.open('https://t.me/Trustedhacker079', '_blank')">✈️ Join Telegram Channel</button>
-    </div>
-  </div>
+  </style> 
+ </head> 
+ <body> 
+  <div class="box"> 
+   <h2>Gemini AI Assistant</h2> 
+   <input type="text" id="prompt" placeholder="Ask me anything..."> 
+   <button id="askBtn" onclick="askAI()">Ask</button> 
+   <div id="responseBox" style="display: none;"></div> 
+   <div class="btn-group" id="extraButtons" style="display: none;"> 
+     <button onclick="copyResponse()">📋 Copy Response</button> 
+     <button onclick="window.open('https://t.me/Trustedhacker079', '_blank')">✈️ Join Telegram Channel</button> 
+   </div> 
+  </div> 
 
   <script>
     async function askAI() {
       const prompt = document.getElementById("prompt").value.trim();
       const responseBox = document.getElementById("responseBox");
       const extraButtons = document.getElementById("extraButtons");
+      const askBtn = document.getElementById("askBtn");
 
       if (!prompt) {
         alert("Please enter your question.");
@@ -102,10 +101,14 @@
       responseBox.innerHTML = "Thinking...";
       responseBox.style.display = "block";
       extraButtons.style.display = "none";
+      askBtn.disabled = true;
 
       try {
-        const url = `https://black-box-ai.apis-bj-devs.workers.dev/?text=${encodeURIComponent(prompt)}`;
+        const url = `https://gemini.rishuapi.workers.dev/?ask=${encodeURIComponent(prompt)}`;
         const res = await fetch(url);
+        
+        if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
+
         const json = await res.json();
 
         if (json && json.response) {
@@ -115,7 +118,10 @@
           responseBox.innerText = "No valid response received.";
         }
       } catch (e) {
+        console.error(e);
         responseBox.innerText = "Error contacting AI. Please try again.";
+      } finally {
+        askBtn.disabled = false;
       }
     }
 
@@ -125,6 +131,6 @@
         .then(() => alert("Copied to clipboard!"))
         .catch(() => alert("Failed to copy."));
     }
-  </script>
-</body>
+  </script> 
+ </body>
 </html>
