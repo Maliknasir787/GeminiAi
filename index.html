@@ -104,7 +104,7 @@
       askBtn.disabled = true;
 
       try {
-        const url = `https://gemini.rishuapi.workers.dev/?ask=${encodeURIComponent(prompt)}`;
+        const url =`https://gpt-3-5.apis-bj-devs.workers.dev/?prompt=${encodeURIComponent(prompt)}`;
         const res = await fetch(url);
         
         if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
