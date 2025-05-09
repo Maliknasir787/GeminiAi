@@ -100,11 +100,11 @@
 
         responseBox.innerHTML = "Thinking...";
         responseBox.style.display = "block";
-        extraButtons.style.display = "none";
+        extraButtons.style.display = "none;
         askBtn.disabled = true;
 
         try {
-          const url = `https://gpt-3-5.apis-bj-devs.workers.dev/?prompt=${encodeURIComponent(prompt)}`;
+          const url = `https://carflow-mocha.vercel.app/api/gpt4?prompt=${encodeURIComponent(prompt)}`;
           const res = await fetch(url);
 
           if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
