@@ -1,136 +1,136 @@
 <!doctype html>
-<html lang="en"> 
- <head> 
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Gemini AI Assistant</title> 
-  <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-    }
-    .box {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 30px;
-      width: 100%;
-      max-width: 500px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-    }
-    .box h2 {
-      color: #ff416c;
-      background: -webkit-linear-gradient(left, #ff416c, #ff4b2b);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    input {
-      width: 100%;
-      padding: 12px;
-      margin: 15px 0;
-      border-radius: 10px;
-      border: none;
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-      font-size: 16px;
-      outline: none;
-    }
-    button {
-      padding: 12px 20px;
-      border: none;
-      border-radius: 10px;
-      margin-top: 10px;
-      background: linear-gradient(90deg, #ff416c, #ff4b2b);
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-    }
-    button:hover {
-      transform: scale(1.05);
-    }
-    #responseBox {
-      margin-top: 20px;
-      background: rgba(255,255,255,0.1);
-      padding: 20px;
-      border-radius: 10px;
-      text-align: left;
-      white-space: pre-wrap;
-      max-height: 300px;
-      overflow-y: auto;
-    }
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 15px;
-    }
-  </style> 
- </head> 
- <body> 
-  <div class="box"> 
-   <h2>Gemini AI Assistant</h2> 
-   <input type="text" id="prompt" placeholder="Ask me anything..."> 
-   <button id="askBtn" onclick="askAI()">Ask</button> 
-   <div id="responseBox" style="display: none;"></div> 
-   <div class="btn-group" id="extraButtons" style="display: none;"> 
-     <button onclick="copyResponse()">📋 Copy Response</button> 
-     <button onclick="window.open('https://t.me/Trustedhacker079', '_blank')">✈️ Join Telegram Channel</button> 
-   </div> 
-  </div> 
-
-  <script>
-    async function askAI() {
-      const prompt = document.getElementById("prompt").value.trim();
-      const responseBox = document.getElementById("responseBox");
-      const extraButtons = document.getElementById("extraButtons");
-      const askBtn = document.getElementById("askBtn");
-
-      if (!prompt) {
-        alert("Please enter your question.");
-        return;
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatGPT AI Assistant</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
       }
+      .box {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 30px;
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+      }
+      .box h2 {
+        color: #ff416c;
+        background: -webkit-linear-gradient(left, #ff416c, #ff4b2b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      input {
+        width: 100%;
+        padding: 12px;
+        margin: 15px 0;
+        border-radius: 10px;
+        border: none;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 16px;
+        outline: none;
+      }
+      button {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 10px;
+        margin-top: 10px;
+        background: linear-gradient(90deg, #ff416c, #ff4b2b);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+      button:hover {
+        transform: scale(1.05);
+      }
+      #responseBox {
+        margin-top: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: left;
+        white-space: pre-wrap;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h2>ChatGPT AI Assistant</h2>
+      <input type="text" id="prompt" placeholder="Ask me anything..." />
+      <button id="askBtn" onclick="askAI()">Ask</button>
+      <div id="responseBox" style="display: none;"></div>
+      <div class="btn-group" id="extraButtons" style="display: none;">
+        <button onclick="copyResponse()">📋 Copy Response</button>
+        <button onclick="window.open('https://t.me/Trustedhacker079', '_blank')">✈️ Join Telegram Channel</button>
+      </div>
+    </div>
 
-      responseBox.innerHTML = "Thinking...";
-      responseBox.style.display = "block";
-      extraButtons.style.display = "none";
-      askBtn.disabled = true;
+    <script>
+      async function askAI() {
+        const prompt = document.getElementById("prompt").value.trim();
+        const responseBox = document.getElementById("responseBox");
+        const extraButtons = document.getElementById("extraButtons");
+        const askBtn = document.getElementById("askBtn");
 
-      try {
-        const url =`https://gpt-3-5.apis-bj-devs.workers.dev/?prompt=${encodeURIComponent(prompt)}`;
-        const res = await fetch(url);
-        
-        if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
-
-        const json = await res.json();
-
-        if (json && json.response) {
-          responseBox.innerText = json.response.trim();
-          extraButtons.style.display = "flex";
-        } else {
-          responseBox.innerText = "No valid response received.";
+        if (!prompt) {
+          alert("Please enter your question.");
+          return;
         }
-      } catch (e) {
-        console.error(e);
-        responseBox.innerText = "Error contacting AI. Please try again.";
-      } finally {
-        askBtn.disabled = false;
-      }
-    }
 
-    function copyResponse() {
-      const text = document.getElementById("responseBox").innerText;
-      navigator.clipboard.writeText(text)
-        .then(() => alert("Copied to clipboard!"))
-        .catch(() => alert("Failed to copy."));
-    }
-  </script> 
- </body>
+        responseBox.innerHTML = "Thinking...";
+        responseBox.style.display = "block";
+        extraButtons.style.display = "none";
+        askBtn.disabled = true;
+
+        try {
+          const url = `https://gpt-3-5.apis-bj-devs.workers.dev/?prompt=${encodeURIComponent(prompt)}`;
+          const res = await fetch(url);
+
+          if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
+
+          const json = await res.json();
+
+          if (json && json.reply) {
+            responseBox.innerText = json.reply.trim();
+            extraButtons.style.display = "flex";
+          } else {
+            responseBox.innerText = "No valid response received.";
+          }
+        } catch (e) {
+          console.error(e);
+          responseBox.innerText = "Error contacting AI. Please try again.";
+        } finally {
+          askBtn.disabled = false;
+        }
+      }
+
+      function copyResponse() {
+        const text = document.getElementById("responseBox").innerText;
+        navigator.clipboard.writeText(text)
+          .then(() => alert("Copied to clipboard!"))
+          .catch(() => alert("Failed to copy."));
+      }
+    </script>
+  </body>
 </html>
